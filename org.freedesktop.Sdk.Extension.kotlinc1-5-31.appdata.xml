@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018-2021 Mat Booth <mat.booth@gmail.com> -->
+<component type="runtime">
+  <id>org.freedesktop.Sdk.Extension.kotlinc1-5-31</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+  <name>Kotlin Compiler SDK Extension</name>
+  <summary>The latest version of the OpenJDK JRE and JDK</summary>
+  <description>
+    <p>
+      This SDK extension allows the building and running of Kotlin-based applications.
+    </p>
+  </description>
+  <url type="homepage">https://kotlinlang.org</url>
+  <url type="bugtracker">https://youtrack.jetbrains.com/issues/KT</url>
+  <developer_name>JetBrains</developer_name>
+  <update_contact>marketing@jetbrains.com</update_contact>
+</component>

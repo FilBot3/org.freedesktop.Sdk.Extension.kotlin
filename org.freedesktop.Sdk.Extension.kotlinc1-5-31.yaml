@@ -1,0 +1,47 @@
+---
+id: org.freedesktop.Sdk.Extension.kotlinc1-5-31
+runtime: org.freedesktop.Sdk
+runtime-version: "20.08"
+sdk: org.freedesktop.Sdk
+separate-locales: false
+build-extension: true
+sdk-extensions: []
+
+cleanup:
+  - enable.sh
+    #  - kotlin-compiler.zip
+  - org.freedesktop.Sdk.Extension.kotlinc1-5-31.appdata.xml
+
+modules:
+  - name: kotlin
+    buildsystem: simple
+    sources:
+      - type: file
+        only-arches:
+          - x86_64
+        url: https://github.com/JetBrains/kotlin/releases/download/v1.5.31/kotlin-compiler-1.5.31.zip
+        sha256: 661111286f3e5ac06aaf3a9403d869d9a96a176b62b141814be626a47249fe9e
+        dest-filename: kotlin-compiler.zip
+    build-commands:
+      - mkdir -p /usr/lib/sdk
+      - unzip kotlin-compiler.zip
+      - mv kotlinc /usr/lib/sdk/
+  - name: enable-sdk
+    buildsystem: simple
+    sources:
+      - type: script
+        commands:
+          - export KOTLIN_HOME=/usr/lib/sdk/kotlinc
+          - export PATH=$PATH:$KOTLIN_HOME/bin
+        dest-filename: enable.sh
+    build-commands:
+      - install -D -m 755 enable.sh /usr/lib/sdk/kotlinc/enable.sh
+
+  - name: appdata
+    buildsystem: simple
+    sources:
+      - type: file
+        path: org.freedesktop.Sdk.Extension.kotlinc1-5-31.appdata.xml
+    build-commands:
+      - install -D -m 644 org.freedesktop.Sdk.Extension.kotlinc1-5-31.appdata.xml /app/share/appdata/share/appdata/org.freedesktop.Sdk.Extension.kotlinc1-5-31.appdata.xml
+...
