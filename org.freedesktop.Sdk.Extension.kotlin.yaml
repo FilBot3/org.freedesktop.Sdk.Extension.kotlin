@@ -9,7 +9,6 @@ build-extension: true
 sdk-extensions: []
 
 cleanup:
-  - enable.sh
   - kotlin-compiler.zip
   - org.freedesktop.Sdk.Extension.kotlin.appdata.xml
 
@@ -24,9 +23,9 @@ modules:
         sha256: 661111286f3e5ac06aaf3a9403d869d9a96a176b62b141814be626a47249fe9e
         dest-filename: kotlin-compiler.zip
     build-commands:
-      - mkdir -p /usr/lib/sdk
+      - install -d /usr/lib/sdk/kotlin
       - unzip kotlin-compiler.zip
-      - cp -r kotlinc /usr/lib/sdk/kotlin
+      - mv kotlinc/* /usr/lib/sdk/kotlin/
       - rm -rf kotlinc
 
   - name: enable-sdk
@@ -38,7 +37,7 @@ modules:
           - export PATH=$PATH:$KOTLIN_HOME/bin
         dest-filename: enable.sh
     build-commands:
-      - cp enable.sh /usr/lib/sdk/kotlin/enable.sh
+      - mv enable.sh /usr/lib/sdk/kotlin/enable.sh
 
 #  - name: appdata
 #    buildsystem: simple

@@ -14,7 +14,7 @@ flatpak:
 		--runtime \
 		repo \
 		org.freedesktop.Sdk.Extension.kotlin.flatpak \
-		org.freedesktop.Sdk.Extension.kotlin
+		org.freedesktop.Sdk.Extension.kotlin 20.08
 
 clean:
 	rm -rf build-dir .flatpak-builder repo
@@ -29,10 +29,19 @@ test-install:
 		org.freedesktop.Sdk.Extension.kotlin.yaml
 
 install:
-	flatpak --user install org.freedesktop.Sdk.Extension.kotlin.flatpak
+	flatpak \
+		--user \
+		install \
+		org.freedesktop.Sdk.Extension.kotlin.flatpak
 
 uninstall:
-	flatpak uninstall --assumeyes org.freedesktop.Sdk.Extension.kotlin
+	flatpak uninstall \
+		--assumeyes \
+		--runtime \
+		--delete-data \
+		org.freedesktop.Sdk.Extension.kotlin
 
 run:
-	flatpak run --command=/bin/bash org.freedesktop.Sdk.Extension.kotlin
+	flatpak run \
+		--command=/bin/bash \
+		org.freedesktop.Sdk.Extension.kotlin
