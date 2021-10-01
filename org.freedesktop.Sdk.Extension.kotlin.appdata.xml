@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2018-2021 Mat Booth <mat.booth@gmail.com> -->
 <component type="runtime">
-  <id>org.freedesktop.Sdk.Extension.kotlinc</id>
+  <id>org.freedesktop.Sdk.Extension.kotlin</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
   <name>Kotlin Compiler SDK Extension</name>
@@ -15,4 +15,7 @@
   <url type="bugtracker">https://youtrack.jetbrains.com/issues/KT</url>
   <developer_name>JetBrains</developer_name>
   <update_contact>marketing@jetbrains.com</update_contact>
+  <releases>
+    <release version="1.5.31" date="2021-09-19" />
+  </releases>
 </component>
